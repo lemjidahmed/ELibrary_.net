@@ -1,7 +1,11 @@
+using Microsoft.EntityFrameworkCore;
+using MP.Net.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<ApplicationDBContext>(options => options.UseMySQL("server=localhost;database=library;user=root;password=root;port=3306"));
 
 var app = builder.Build();
 
